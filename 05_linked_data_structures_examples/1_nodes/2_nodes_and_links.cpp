@@ -13,7 +13,7 @@ void print(const Node &n) {                         // non-member function to pr
 }
 
 int main() {
-    std::cout << std::endl;
+    std::cout << std::endl;                         // hello
 
     Node n1{100};                                               
     Node n2{200};                                           
@@ -21,7 +21,7 @@ int main() {
     Node n4{300};                                                     
 
     n1.next = &n2;                                  // link the nodes: n1 -> n2 -> n3 -> n4 -> nullptr
-    n2.next = &n3;
+    n2.next = &n3;//idk
     n3.next = &n4;
 
     /*
