@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 
 class Course {
 private:
@@ -37,4 +37,4 @@ int main() {
 
     std::cout << std::endl;
     return 0;
-}
+}*/
