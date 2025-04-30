@@ -41,3 +41,49 @@ Constraints:
 1 <= s.length <= 15
 s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].*/
+#include <iostream>
+#include <unordered_map>
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    int romanToInt(string s) {
+        unordered_map<char,int> roman = {
+            {'I', 1},{'V', 5},{'X', 10},{'L', 50},
+            {'C', 100},{'D', 500},{'M', 1000}
+        };
+
+        int total = 0;
+
+        for(int i = 0; i < s.length(); i++){
+            int actual = roman[s[i]];
+            int next = 0;
+
+            if (i + 1 < s.length()) {
+                next = roman[s[i + 1]];
+            }
+
+            if (actual < next) {
+                total -= actual;
+            } else {
+                total += actual;
+            }
+        }
+
+        return total;
+    }
+};
+
+int main() {
+    Solution solution;
+
+    // Test cases
+    cout << "III = " << solution.romanToInt("III") << endl;         // Output: 3
+    cout << "IV = " << solution.romanToInt("IV") << endl;           // Output: 4
+    cout << "IX = " << solution.romanToInt("IX") << endl;           // Output: 9
+    cout << "LVIII = " << solution.romanToInt("LVIII") << endl;     // Output: 58
+    cout << "MCMXCIV = " << solution.romanToInt("MCMXCIV") << endl; // Output: 1994
+
+    return 0;
+}
